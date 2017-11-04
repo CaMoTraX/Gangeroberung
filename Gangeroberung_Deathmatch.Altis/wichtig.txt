@@ -1,0 +1,6 @@
+Die Mission soll unbedingt unleaked bleiben. Also pass bitte auf, dass beim testen auf ein Server, die Mission
+wenns geht gecrypted ist, oder der Server ein Passwort hat, das nur du kennst.
+
+
+Danke.
+D0ggy
