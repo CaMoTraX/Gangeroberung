@@ -1,0 +1,262 @@
+//Init stuff
+_crate = _this select 0;
+["AmmoboxInit",[_crate,false,{true}]] spawn BIS_fnc_arsenal;
+
+//Lists of items to include
+_availableHeadgear = [
+	"rhs_Booniehat_ocp",
+	"rhs_Booniehat_ucp",
+	"rhs_Booniehat_marpatd",
+	"rhs_Booniehat_marpatwd",
+	"rhs_Booniehat_m81",
+	"rhsusf_ach_helmet_ocp",
+	"rhsusf_ach_helmet_ucp",
+	"rhsusf_ach_helmet_M81",
+	"rhsusf_ach_helmet_camo_ocp",
+	"rhsusf_ach_helmet_headset_ocp",
+	"rhsusf_ach_helmet_headset_ucp",
+	"rhsusf_ach_helmet_ESS_ocp",
+	"rhsusf_ach_helmet_ESS_ucp",
+	"rhsusf_ach_helmet_headset_ess_ocp",
+	"rhsusf_ach_helmet_headset_ess_ucp",
+	"rhsusf_ach_bare",
+	"rhsusf_ach_bare_ess",
+	"rhsusf_ach_bare_headset",
+	"rhsusf_ach_bare_headset_ess",
+	"rhsusf_ach_bare_tan",
+	"rhsusf_ach_bare_tan_ess",
+	"rhsusf_ach_bare_tan_headset",
+	"rhsusf_ach_bare_tan_headset_ess",
+	"rhsusf_ach_bare_wood",
+	"rhsusf_ach_bare_wood_ess",
+	"rhsusf_ach_bare_wood_headset",
+	"rhsusf_ach_bare_wood_headset_ess",
+	"rhsusf_ach_bare_des",
+	"rhsusf_ach_bare_des_ess",
+	"rhsusf_ach_bare_des_headset",
+	"rhsusf_ach_bare_des_headset_ess",
+	"rhsusf_ach_bare_semi",
+	"rhsusf_ach_bare_semi_ess",
+	"rhsusf_ach_bare_semi_headset",
+	"rhsusf_ach_bare_semi_headset_ess",
+	"rhsusf_opscore_01",
+	"rhsusf_opscore_01_tan",
+	"rhsusf_opscore_02",
+	"rhsusf_opscore_02_tan",
+	"rhsusf_opscore_03_ocp",
+	"rhsusf_mich_helmet_marpatwd",
+	"rhsusf_mich_helmet_marpatwd_headset",
+	"rhsusf_mich_helmet_marpatd",
+	"rhsusf_mich_helmet_marpatd_headset",
+	"rhsusf_mich_helmet_marpatwd_alt",
+	"rhsusf_mich_helmet_marpatwd_alt_headset",
+	"rhsusf_mich_helmet_marpatd_alt",
+	"rhsusf_mich_helmet_marpatd_alt_headset",
+	"rhsusf_mich_helmet_marpatwd_norotos",
+	"rhsusf_mich_helmet_marpatwd_norotos_headset",
+	"rhsusf_mich_helmet_marpatd_norotos",
+	"rhsusf_mich_helmet_marpatd_norotos_headset",
+	"rhsusf_mich_helmet_marpatwd_norotos_arc",
+	"rhsusf_mich_helmet_marpatwd_norotos_arc_headset",
+	"rhsusf_mich_helmet_marpatd_norotos_arc",
+	"rhsusf_mich_helmet_marpatd_norotos_arc_headset",
+	"rhsusf_mich_bare",
+	"rhsusf_mich_bare_headset",
+	"rhsusf_mich_bare_alt",
+	"rhsusf_mich_bare_norotos",
+	"rhsusf_mich_bare_norotos_headset",
+	"rhsusf_mich_bare_norotos_alt",
+	"rhsusf_mich_bare_norotos_alt_headset",
+	"rhsusf_mich_bare_norotos_arc",
+	"rhsusf_mich_bare_norotos_arc_headset",
+	"rhsusf_mich_bare_norotos_arc_alt",
+	"rhsusf_mich_bare_norotos_arc_alt_headset",
+	"rhsusf_mich_bare_tan",
+	"rhsusf_mich_bare_tan_headset",
+	"rhsusf_mich_bare_alt_tan",
+	"rhsusf_mich_bare_norotos_tan",
+	"rhsusf_mich_bare_norotos_tan_headset",
+	"rhsusf_mich_bare_norotos_alt_tan",
+	"rhsusf_mich_bare_norotos_alt_tan_headset",
+	"rhsusf_mich_bare_norotos_arc_tan",
+	"rhsusf_mich_bare_norotos_arc_tan_headset",
+	"rhsusf_mich_bare_norotos_arc_alt_tan",
+	"rhsusf_mich_bare_norotos_arc_alt_tan_headset",
+	"rhsusf_mich_bare_semi",
+	"rhsusf_mich_bare_semi_headset",
+	"rhsusf_mich_bare_alt_semi",
+	"rhsusf_mich_bare_norotos_semi",
+	"rhsusf_mich_bare_norotos_semi_headset",
+	"rhsusf_mich_bare_norotos_alt_semi",
+	"rhsusf_mich_bare_norotos_alt_semi_headset",
+	"rhsusf_mich_bare_norotos_arc_semi",
+	"rhsusf_mich_bare_norotos_arc_semi_headset",
+	"rhsusf_mich_bare_norotos_arc_alt_semi",
+	"rhsusf_mich_bare_norotos_arc_alt_semi_headset",
+	"rhsusf_lwh_helmet_marpatd",
+	"rhsusf_lwh_helmet_marpatwd",
+	"rhsusf_Bowman"
+
+];
+
+_availableGoggles = [
+	"G_Bandanna_beast",
+	"G_Bandanna_blk",
+	"G_Bandanna_khk",
+	"G_Bandanna_oli",
+	"G_Bandanna_tan",
+	"G_Diving",
+	"rhs_scarf",
+	"rhs_googles_clear",
+	"rhs_googles_yellow",
+	"rhs_googles_orange",
+	"rhs_googles_black"
+];
+
+_availableUniforms = [
+	"rhs_uniform_FROG01_d",
+	"rhs_uniform_FROG01_wd",
+	"rhs_uniform_FROG01_m81",
+	"rhs_uniform_cu_ucp_101st",
+	"rhs_uniform_cu_ocp_101st",
+	"U_B_Wetsuit"
+];
+
+_availableVests = [
+	"rhsusf_iotv_ocp",
+	"rhsusf_iotv_ocp_Grenadier",
+	"rhsusf_iotv_ocp_Medic",
+	"rhsusf_iotv_ocp_Repair",
+	"rhsusf_iotv_ocp_Rifleman",
+	"rhsusf_iotv_ocp_SAW",
+	"rhsusf_iotv_ocp_Squadleader",
+	"rhsusf_iotv_ocp_Teamleader",
+	"rhsusf_iotv_ucp",
+	"rhsusf_iotv_ucp_Grenadier",
+	"rhsusf_iotv_ucp_Medic",
+	"rhsusf_iotv_ucp_Repair",
+	"rhsusf_iotv_ucp_Rifleman",
+	"rhsusf_iotv_ucp_SAW",
+	"rhsusf_iotv_ucp_Squadleader",
+	"rhsusf_iotv_ucp_Teamleader",
+	"rhsusf_spc",
+	"V_RebreatherB"
+];
+
+_availableBackpacks = [
+	"rhsusf_falconii",
+	"B_Carryall_oli",
+	"B_Carryall_mcamo",
+	"B_Carryall_khk",
+	"B_Carryall_cbr",
+	"B_Kitbag_sgg",
+	"B_Kitbag_mcamo",
+	"B_Kitbag_rgr",
+	"B_Kitbag_cbr",
+	"rhsusf_assault_eagleaiii_coy",
+	"rhsusf_assault_eagleaiii_ucp",
+	"rhsusf_assault_eagleaiii_ocp"
+];
+
+_nvgoggles = [
+	"rhsusf_ANPVS_14",
+	"rhsusf_ANPVS_15"
+];
+
+_gunz = [
+	"Hgun_Pistol_heavy_01_F",
+	"rhs_weap_M320",
+	"rhsusf_weap_m1911a1",
+	"rhs_weap_M136_hp",
+	"rhs_weap_M136_hedp",
+	"rhs_weap_M136",
+	"rhs_weap_fgm148",
+	"SMG_01_F",
+	"rhs_weap_M590_5RD",
+	"rhs_weap_M590_8RD",
+	"rhs_weap_m4a1_m320",
+	"rhs_weap_m4a1_grip2",
+	"rhs_weap_m4a1_carryhandle_m203",
+	"rhs_weap_m4a1_carryhandle_grip2",
+	"rhs_weap_m4a1_carryhandle",
+	"rhs_weap_m249_pip_S",
+	"rhs_weap_m249_pip_L",
+	"rhs_weap_m240B_CAP",
+	"rhs_weap_XM2010_d",
+	"rhs_weap_XM2010",
+	"rhs_weap_m16a4_carryhandle_M203",
+	"rhs_weap_m16a4_carryhandle",
+	"rhs_weap_m14ebrri",
+	"rhs_weap_sr25",
+	"rhs_weap_sr25_ec"
+];
+_mainattachments = [
+	"rhsusf_acc_EOTECH",
+	"rhsusf_acc_LEUPOLDMK4_2",
+	"rhsusf_acc_LEUPOLDMK4",
+	"rhsusf_acc_compm4",
+	"rhsusf_acc_eotech_552",
+	"rhsusf_acc_M2010S",
+	"rhsusf_acc_ACOG3",
+	"rhsusf_acc_SFMB556",
+	"rhsusf_acc_ACOG2",
+	"rhsusf_acc_SF3P556",
+	"rhsusf_acc_ACOG_pip",
+	"rhsusf_acc_rotex5_tan",
+	"rhsusf_acc_ACOG",
+	"rhsusf_acc_rotex5_grey",
+	"rhsusf_acc_ELCAN_pip",
+	"rhsusf_acc_nt4_tan",
+	"rhsusf_acc_ELCAN",
+	"rhsusf_acc_nt4_black",
+	"acc_pointer_IR",
+	"rhsusf_acc_ACOG_USMC",
+	"acc_flashlight",
+	"rhsusf_acc_ACOG3_USMC",
+	"rhsusf_acc_SR25S",
+	"rhsusf_acc_anpeq15side",
+	"rhsusf_acc_ACOG2_USMC",
+	"rhsusf_acc_harris_bipod",
+	"muzzle_snds_acp",
+	"optic_Holosight"
+];
+_seconattachments = [
+	"muzzle_snds_acp",
+	"optic_MRD"
+];
+_miscshit = [
+	"ItemWatch",
+	"ItemCompass",
+	"ItemGPS",
+	"ItemRadio",
+	"ItemMap",
+	"MineDetector",
+	"Binocular",
+	"Rangefinder",
+	"Laserdesignator",
+	"FirstAidKit",
+	"Medikit",
+	"ToolKit",
+	"B_UavTerminal"
+
+];
+_magazines = [
+	"1Rnd_HE_Grenade_shell",
+	"HandGrenade",
+	"MiniGrenade",
+	"SmokeShell",
+	"SmokeShellRed",
+	"SmokeShellGreen",
+	"SmokeShellBlue",
+	"Chemlight_blue",
+	"Chemlight_green",
+	"Chemlight_red",
+	"B_IR_Grenade",
+	"SatchelCharge_Remote_Mag",
+	"DemoCharge_Remote_Mag"
+];
+//Populate with predefined items and whatever is already in the crate
+[_crate,((backpackCargo _crate) + _availableBackpacks)] call BIS_fnc_addVirtualBackpackCargo;
+[_crate,((itemCargo _crate) + _availableHeadgear + _availableGoggles + _availableUniforms + _availableVests + _nvgoggles + _mainattachments + _seconattachments + _miscshit)] call BIS_fnc_addVirtualItemCargo;
+[_crate,(magazineCargo _crate + _magazines)] call BIS_fnc_addVirtualMagazineCargo;
+[_crate,((weaponCargo _crate) + _gunz)] call BIS_fnc_addVirtualWeaponCargo;
